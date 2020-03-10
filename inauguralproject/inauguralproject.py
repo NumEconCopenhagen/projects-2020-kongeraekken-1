@@ -28,8 +28,8 @@ def u_optimizer(eps,kappa,nu,m,tau0,tau1,w):
     """This function optimizes u_func wrt labor input. It prints out the optimal labor supply,
     the implied optimal consumption and the utility derived from this optimal combination"""
     
-    sol = -optimize.minimize_scalar(u_func,method="bounded",
-    bounds=(0,1),args=(eps,kappa,nu,m,tau0,tau1,ww))
+    sol = -'optimize.minimize_scalar(u_func,method="bounded",
+    bounds=(0,1),args=(eps,kappa,nu,m,tau0,tau1,w))
 
     l_star = sol.x
     c_star = m + w*l - (tau0*w*l + tau1*np.max(w*l - kappa,0))
