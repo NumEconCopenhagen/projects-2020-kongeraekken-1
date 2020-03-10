@@ -28,7 +28,9 @@ def u_optimizer(eps,kappa,nu,m,tau0,tau1,w):
     """This function optimizes u_func wrt labor input. It prints out the optimal labor supply,
     the implied optimal consumption and the utility derived from this optimal combination"""
     
-    sol = -'optimize.minimize_scalar(u_func,method="bounded",
+    obj = -u_func(l,eps,kappa,nu,m,tau0,tau1,w)
+
+    sol = optimize.minimize_scalar(u_func,method="bounded",
     bounds=(0,1),args=(eps,kappa,nu,m,tau0,tau1,w))
 
     l_star = sol.x
