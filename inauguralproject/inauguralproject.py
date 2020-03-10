@@ -1,6 +1,6 @@
 import numpy as np
 from scipy import optimize
-import matplotlib.pyplot as plt
+
 
 def u_func(l,eps,kappa,nu,m,tau0,tau1,w):
     """
@@ -22,3 +22,17 @@ def u_func(l,eps,kappa,nu,m,tau0,tau1,w):
     
     u = np.log(m + w*l - (tau0*w*l + tau1*np.max(w*l - kappa,0))) - nu*(l**(1+1/eps)/(1+1/eps))
     return u
+
+
+def u_optimizer(eps,kappa,nu,m,tau0,tau1,w):
+    """This function optimizes u_func wrt labor input. It prints out the optimal labor supply,
+    the implied optimal consumption and the utility derived from this optimal combination"""
+    
+    sol = optimize.minimize_scalar(-u_func,method="bounded",
+    bounds=(0,1),args=(eps,kappa,nu,m,tau0,tau1,ww))
+
+    l_star = sol.x
+    c_star = m + w*l - (tau0*w*l + tau1*np.max(w*l - kappa,0))
+    u_star = u_func(l=l_star,eps=eps,kappa=kappa,nu=nu,m=m,tau0=tau0,tau1=tau1,w=w)
+    return l_star, c_star, u_star
+
