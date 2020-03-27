@@ -78,11 +78,11 @@ def tax_revenue(seed,size,low,high,eps=0.3):
    u_func and heterogeneous income (uniformly distributed).
    
    Inputs:
-   seed: seed number
-   size: number of random incomes (i.e. agents) drawn from a uniform  distribution
-   low: lower bound of uniform distribution
-   high: higher bound of uniform distribution
-   eps: Frisch elasticity of labour supply
+    seed: seed number
+    size: number of random incomes (i.e. agents) drawn from a uniform  distribution
+    low: lower bound of uniform distribution
+    high: higher bound of uniform distribution
+    eps: Frisch elasticity of labour supply
    
    Local variables:
     
