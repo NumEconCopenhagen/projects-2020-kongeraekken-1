@@ -1,11 +1,14 @@
 # Data analysis project
 
-Our project is titled **Volatility in Stock Market Indices** and contains a descriptive analysis of three stock market indices with respect to the dot-com bubble, the global financial crisis and the recent corona crisis. We fetch the data using APIs.
+Our project is titled **PROJECT TITLE** and is about EXPLAIN.
 
-The results of the project can be seen from running [dataproject.ipynb](dataproject.ipynb).
+The **results** of the project can be seen from running [dataproject.ipynb](dataproject.ipynb).
+
+This **loades two datasets**:
+
+1. INDKP101.xlsx downloaded from statistikbanekn.dk/INDKP101
+1. RAS200.xlsx downloaded from statistikbanekn.dk/RAS200
 
 **Dependencies:** Apart from a standard Anaconda Python 3 installation, the project requires the following installations:
 
 ``pip install matplotlib-venn``
-``pip install pydst``
-``pip install quandl``
