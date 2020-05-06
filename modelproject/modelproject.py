@@ -1,10 +1,10 @@
 from scipy import optimize
 
-def solve_for_ss(s,g,n,alpha,delta):
-    """ solve for the steady state level of capital
+def solve_for_consumption(m1,r,beta,rho):
+    """ solve for optimal consumption in period 1 and 2
 
     Args:
-        s (float): saving rate
+        m1 (float): period 1 cash on hand
         g (float): technological growth rate
         n (float): population growth rate
         alpha (float): cobb-douglas parameter
