@@ -94,7 +94,7 @@ def solve_period_2(rho,nu,kappa,Delta):
         
     return m2_vec,v2_vec,c2_vec
 
-def solve_period_1(rho,beta,r,Delta,v2_interp,v1): # try without v1 as input
+def solve_period_1(rho,beta,r,Delta,v2_interp,v1_risk):
 
     # a. grids
     m1_vec = np.linspace(1e-8,4,100)
@@ -105,7 +105,7 @@ def solve_period_1(rho,beta,r,Delta,v2_interp,v1): # try without v1 as input
     for i,m1 in enumerate(m1_vec):
         
         # i. objective
-        obj = lambda c1: -v1(c1,m1,rho,beta,r,Delta,v2_interp)
+        obj = lambda c1: -v1_risk(c1,m1,rho,beta,r,Delta,v2_interp)
         
         # ii. initial guess (consume half)
         x0 = m1*1/2
@@ -130,11 +130,9 @@ def solve_risk(rho,beta,r,Delta,nu,kappa,v1_risk):
                                                     bounds_error=False,fill_value=None)
     
     # b. solve period 1
-    m1_vec,v1_vec,c1_vec = solve_period_1(rho,beta,r,Delta,v2_interp,v1_risk) #ændrede v1 til v1_risk
+    m1_vec,v1_vec,c1_vec = solve_period_1(rho,beta,r,Delta,v2_interp,v1_risk) 
     
     return m1_vec,c1_vec,m2_vec,c2_vec
-
-
 
 
 # solve for tail risk scenario
