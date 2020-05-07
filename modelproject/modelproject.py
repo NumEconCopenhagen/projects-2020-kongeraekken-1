@@ -120,7 +120,7 @@ def solve_period_1(rho,beta,r,Delta,v2_interp,v1): # try without v1 as input
     return m1_vec,v1_vec,c1_vec
 
 # joint solve function
-def solve_risk(rho,beta,r,Delta,nu,kappa,v1):
+def solve_risk(rho,beta,r,Delta,nu,kappa,v1_risk):
     
     # a. solve period 2
     m2_vec,v2_vec,c2_vec = solve_period_2(rho,nu,kappa,Delta)
@@ -130,7 +130,7 @@ def solve_risk(rho,beta,r,Delta,nu,kappa,v1):
                                                     bounds_error=False,fill_value=None)
     
     # b. solve period 1
-    m1_vec,v1_vec,c1_vec = solve_period_1(rho,beta,r,Delta,v2_interp,v1)
+    m1_vec,v1_vec,c1_vec = solve_period_1(rho,beta,r,Delta,v2_interp,v1_risk) #ændrede v1 til v1_risk
     
     return m1_vec,c1_vec,m2_vec,c2_vec
 

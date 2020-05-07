@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+modelproject/modelproject_FDP_NEW.ipynb
+modelproject/modelproject_fdp.py
+modelproject/modelproject_fdp.ipynb
