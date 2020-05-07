@@ -29,7 +29,7 @@ def solve_for_consumption(m1,r,beta,rho):
     c1_rootform = lambda c1: c1 - ((1+r)*(m1-c1)/(beta*(1+r))**(1/rho))
 
     # b. call root finder
-    result = optimize.root_scalar(c1_rootform,bracket=[0.1,100],method='brentq')
+    result = optimize.root_scalar(c1_rootform,bracket=[0.1,100],method='bisect')
     c1_s = result.root
                                                            
     # c. residual calculation of c2
