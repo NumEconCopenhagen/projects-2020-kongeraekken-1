@@ -73,7 +73,7 @@ def two_figures(x_left, y_left, title_left, xlabel_left, ylabel_left, x_right, y
 
 # tax revenue function
 # removed ,tau0=tau0,tau1=tau1,kappa=kappa from arguments
-def tax_revenue(seed,size,low,high,eps=0.3,tau0,tau1,kappa):
+def tax_revenue(seed,size,low,high,eps=0.3,tau0=0.4,tau1=0.1,kappa=0.4):
     """
     Calculates the total tax revenue for a given number of agents with utility defined as
     u_func and heterogeneous income (uniformly distributed).
@@ -102,11 +102,11 @@ def tax_revenue(seed,size,low,high,eps=0.3,tau0,tau1,kappa):
     wi = np.random.uniform(low=low,high=high,size=size)
 
     # b. define local parameter values
-    kappa = 0.4
+    #kappa = 0.4
     nu = 10
     m = 1
-    tau0 = 0.4
-    tau1 = 0.1
+    #tau0 = 0.4
+    #tau1 = 0.1
 
     # c. solve each individual's optimisation problem
     tax_rev = 0
