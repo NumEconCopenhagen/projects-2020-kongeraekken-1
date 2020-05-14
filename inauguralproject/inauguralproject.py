@@ -72,34 +72,35 @@ def two_figures(x_left, y_left, title_left, xlabel_left, ylabel_left, x_right, y
     ax_right.set_ylabel(ylabel_right, rotation=90)
 
 # tax revenue function
-def tax_revenue(seed,size,low,high,eps=0.3):
-   """
-   Calculates the total tax revenue for a given number of agents with utility defined as
-   u_func and heterogeneous income (uniformly distributed).
-   
-   Inputs:
+# removed ,tau0=tau0,tau1=tau1,kappa=kappa from arguments
+def tax_revenue(seed,size,low,high,eps=0.3,tau0,tau1,kappa):
+    """
+    Calculates the total tax revenue for a given number of agents with utility defined as
+    u_func and heterogeneous income (uniformly distributed).
+
+    Inputs:
     seed: seed number
     size: number of random incomes (i.e. agents) drawn from a uniform  distribution
     low: lower bound of uniform distribution
     high: higher bound of uniform distribution
     eps: Frisch elasticity of labour supply
-   
-   Local variables:
-    
+
+    Local variables:
+
     kappa: cut-off for top labour income bracket
     nu: a scalar for the weight put on disutility of labour
     m: cash-on-hand
     tau0: normal tax rate
     tau1: top labour income bracket tax rate
     wi: random numbers drawn from a uniform distribution
-   
-   Output:
-   Total tax revenue
-   """
+
+    Output:
+    Total tax revenue
+    """
     # a. set seed, draw random numbers
     np.random.seed(seed)
     wi = np.random.uniform(low=low,high=high,size=size)
-    
+
     # b. define local parameter values
     kappa = 0.4
     nu = 10
@@ -109,7 +110,7 @@ def tax_revenue(seed,size,low,high,eps=0.3):
 
     # c. solve each individual's optimisation problem
     tax_rev = 0
-    
+
     for i, wi in enumerate (wi):        
         lc = u_optimiser(eps,kappa,nu,m,tau0,tau1,wi)
         tax_i = tau0*wi*lc[0] + tau1*max(wi*lc[0]-kappa,0)
