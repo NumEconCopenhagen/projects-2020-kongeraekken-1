@@ -49,7 +49,7 @@ def two_figures(x_left, y_left, title_left, xlabel_left, ylabel_left, x_right, y
     Plots two aligned figures. 
     
     Inputs: should be self explanatory...
-    Ouput: Two figures in 2D
+    Output: Two figures in 2D
     """
     # a. initialise figure
     fig = plt.figure(figsize=(10,4))# figsize is in inches...
@@ -60,7 +60,7 @@ def two_figures(x_left, y_left, title_left, xlabel_left, ylabel_left, x_right, y
 
     ax_left.set_title(title_left)
     ax_left.set_xlabel(xlabel_left)
-    ax_left.set_ylabel(ylabel_left, rotation=270)
+    ax_left.set_ylabel(ylabel_left)
 
     # c. right plot
     ax_right = fig.add_subplot(1,2,2)
@@ -69,10 +69,9 @@ def two_figures(x_left, y_left, title_left, xlabel_left, ylabel_left, x_right, y
 
     ax_right.set_title(title_right)
     ax_right.set_xlabel(xlabel_right)
-    ax_right.set_ylabel(ylabel_right, rotation=90)
+    ax_right.set_ylabel(ylabel_right)
 
 # tax revenue function
-# removed ,tau0=tau0,tau1=tau1,kappa=kappa from arguments
 def tax_revenue(seed,size,low,high,eps=0.3,tau0=0.4,tau1=0.1,kappa=0.4):
     """
     Calculates the total tax revenue for a given number of agents with utility defined as
@@ -102,11 +101,8 @@ def tax_revenue(seed,size,low,high,eps=0.3,tau0=0.4,tau1=0.1,kappa=0.4):
     wi = np.random.uniform(low=low,high=high,size=size)
 
     # b. define local parameter values
-    #kappa = 0.4
     nu = 10
     m = 1
-    #tau0 = 0.4
-    #tau1 = 0.1
 
     # c. solve each individual's optimisation problem
     tax_rev = 0
